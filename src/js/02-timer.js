@@ -11,6 +11,7 @@ const refs = {
 };
 
 let diffDates = 0;
+let timerId = null;
 
 const options = {
   enableTime: true,
