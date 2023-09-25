@@ -66,12 +66,12 @@ function startCountdown() {
   refs.startBtn.removeEventListener('click', startCountdown);
   timerId = setInterval(() => {
     diffDates -= 1000;
-    if (diffDates < 0) {
-      clearInterval(timerId);
-      Notify.success('Your time is over!');
+    if (diffDates > 0) {
+      displayCounter(diffDates);
       return;
     }
-    displayCounter(diffDates);
+    clearInterval(timerId);
+    Notify.success('Your time is over!');
   }, 1000);
   return;
 }
