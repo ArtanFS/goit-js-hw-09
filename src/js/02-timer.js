@@ -9,7 +9,9 @@ const refs = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
 };
+
 let diffDates = 0;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -60,13 +62,19 @@ function displayCounter(ms) {
   return;
 }
 
-const startCountdown = () => {
+function startCountdown() {
+  refs.startBtn.removeEventListener('click', startCountdown);
   timerId = setInterval(() => {
     diffDates -= 1000;
-    diffDates < 0 ? clearInterval(timerId) : displayCounter(diffDates);
+    if (diffDates < 0) {
+      clearInterval(timerId);
+      Notify.success('Your time is over!');
+      return;
+    }
+    displayCounter(diffDates);
   }, 1000);
   return;
-};
+}
 
 flatpickr('#datetime-picker', options);
 refs.startBtn.setAttribute('disabled', '');
