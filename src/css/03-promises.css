@@ -1,0 +1,22 @@
+.form {
+  position: relative;
+}
+
+label {
+  /* display: flex; */
+  position: relative;
+  margin-right: 80px;
+}
+
+input {
+  position: absolute;
+  top: 24px;
+  left: 0px;
+}
+
+button {
+  position: absolute;
+  top: 24px;
+  left: 580px;
+  cursor: pointer;
+}
